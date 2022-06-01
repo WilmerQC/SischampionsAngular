@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'sischampions2022';
+  title = 'Sistema de campeonato';
+  equipos=['ciclo III','ciclo IV', 'ciclo V']
 }
