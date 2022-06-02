@@ -22,7 +22,7 @@
                           <td>{{item.name}}</td>
                           <td>{{item.created_at}}</td>
                           <td>
-                              <button type="button" class="btn btn-success btn-sm move-right" [routerLink]="['/edit-issue/', item.id]">Edit</button>
+                              <button type="button" class="btn btn-success btn-sm move-right" [routerLink]="['/edit-issue/', item.id]" (click)="onEdit(item)">Edit</button>
                               <button type="button" class="btn btn-danger btn-sm" (click)="deleteSchool(item.id)">Remove</button>
                           </td>
                       </tr>

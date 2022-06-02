@@ -33,4 +33,9 @@ export class SchoolService {
    return this.http.delete(this.baseurl+'schools/'+id+'/');
   }
 
+  //metodo UPDATE
+  UpdateSchool(id:number,school:School){
+    return this.http.put(this.baseurl+'schools/'+id+'/',school);
+  }
+
 }

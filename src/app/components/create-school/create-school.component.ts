@@ -17,6 +17,17 @@ export class CreateSchoolComponent implements OnInit {
   }
 
   submitForm(schoolForm:NgForm){
+    if(schoolForm.value.id==null){
+      this.schoolService.createSchool(schoolForm.value).subscribe((response) => {
+        this.router.navigate([""]);
+      });
+    }else{
+      this.schoolService.UpdateSchool(schoolForm.value.id,schoolForm.value).subscribe((response) => {
+        this.router.navigate([""]);
+      });
+      this.resetForm(schoolForm);
+    }
+
     this.schoolService.createSchool(schoolForm.value).subscribe((Response)=>{
       this.router.navigate([""]);
     });
