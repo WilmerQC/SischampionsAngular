@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Route, Router } from '@angular/router';
+import { School } from 'src/app/models/school.model';
+import { SchoolService } from 'src/app/services/school.service';
 
 @Component({
   selector: 'app-create-school',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateSchoolComponent implements OnInit {
 
-  constructor() { }
+  constructor(public schoolService:SchoolService, private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  submitForm(schoolForm:NgForm){
+    this.schoolService.createSchool(schoolForm.value).subscribe((Response)=>{
+      this.router.navigate([""]);
+    });
+    this.resetForm(schoolForm);
+  }
+  resetForm(schoolForm:NgForm){
+    if(schoolForm!=null){
+      schoolForm.reset();
+      this.schoolService.selectSchool=new School();
+    }
   }
 
 }

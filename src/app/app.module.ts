@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { CreateSchoolComponent } from './components/create-school/create-school.component';
 import { ListSchoolComponent } from './components/list-school/list-school.component';
 import { EditSchoolComponent } from './components/edit-school/edit-school.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { SchoolService } from './services/school.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,11 @@ import { EditSchoolComponent } from './components/edit-school/edit-school.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [SchoolService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
